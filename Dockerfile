@@ -12,8 +12,8 @@ RUN EXPECTED_SIGNATURE=$(wget -q -O - https://composer.github.io/installer.sig) 
 	php composer-setup.php --quiet && \
 	rm -rf composer-setup.php && \
 	mv composer.phar /usr/local/bin/composer
-RUN	mkdir -p /var/www/html/ && composer create-project --prefer-dist laravel/laravel blog
+RUN	mkdir -p /var/www/html/ && composer create-project --prefer-dist laravel/laravel app
 ADD config/entrypoint.sh entrypoint.sh
 RUN chmod u+x entrypoint.sh
-EXPOSE 8008
+EXPOSE 8000
 ENTRYPOINT ["./entrypoint.sh"]
