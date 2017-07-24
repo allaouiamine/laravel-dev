@@ -1,8 +1,8 @@
 FROM alpine
 RUN apk update && \
 	apk upgrade && \
-	apk add wget && \
-	apk add php5 php5-openssl php5-pdo php5-dom php5-opcache php5-xml php5-json php5-phar php5-pear php5-zip php5-mysql php5-pgsql ca-certificates && \
+	apk add wget git && \
+	apk add php5 php5-pdo php5-openssl php5-pdo php5-dom php5-opcache php5-xml php5-json php5-phar php5-pear php5-zip php5-mysql php5-pgsql ca-certificates && \
 	rm /var/cache/apk/*
 WORKDIR /var/www/html
 RUN EXPECTED_SIGNATURE=$(wget -q -O - https://composer.github.io/installer.sig) && \
